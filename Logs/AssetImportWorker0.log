@@ -1,37 +1,46 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.6f1 (338bb68529b2) revision 3378102'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19041.985; Version 2004; 64bit' Language: 'ko' Physical Memory: 16328 MB
+OS: 'Windows 10 Education; OS build 18363.1556; Version 1909; 64bit' Language: 'ko' Physical Memory: 16333 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.6f1\Editor\Unity.exe
+A:\Unity\2020.3.6f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/82106/Boss_Run
+C:/Users/황인규/Documents/GitHub/Boss_Run
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< HEAD
 6955
 Successfully changed project path to: C:/Users/82106/Boss_Run
 C:/Users/82106/Boss_Run
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 34.40 ms, found 1 plugins.
+=======
+6938
+Successfully changed project path to: C:/Users/황인규/Documents/GitHub/Boss_Run
+C:/Users/황인규/Documents/GitHub/Boss_Run
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 28.29 ms, found 1 plugins.
+>>>>>>> ingame2
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.6f1 (338bb68529b2)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/82106/Boss_Run/Assets
+[Subsystems] Discovering subsystems at path A:/Unity/2020.3.6f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/황인규/Documents/GitHub/Boss_Run/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 2070 (ID=0x1f07)
+    Renderer: NVIDIA GeForce GTX 1660 (ID=0x2184)
     Vendor:   
-    VRAM:     8031 MB
-    Driver:   27.21.14.5671
+    VRAM:     5991 MB
+    Driver:   27.21.14.6172
 Initialize mono
+<<<<<<< HEAD
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/MonoBleedingEdge/etc'
@@ -48,22 +57,45 @@ Mono: successfully reloaded assembly
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
 Registered in 0.010293 seconds.
+=======
+Mono path[0] = 'A:/Unity/2020.3.6f1/Editor/Data/Managed'
+Mono path[1] = 'A:/Unity/2020.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'A:/Unity/2020.3.6f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56920
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: A:/Unity/2020.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.000993 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 24.91 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.819 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.010145 seconds.
+>>>>>>> ingame2
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 - Completed reload, in  0.974 seconds
+=======
+- Completed reload, in  0.788 seconds
+>>>>>>> ingame2
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.36 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1219 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 77.6 MB.
-System memory in use after: 77.7 MB.
+System memory in use before: 62.5 MB.
+System memory in use after: 62.6 MB.
 
+<<<<<<< HEAD
 Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 1702.
 Total: 1.876100 ms (FindLiveObjects: 0.175200 ms CreateObjectMapping: 0.030000 ms MarkObjects: 1.584600 ms  DeleteObjects: 0.085100 ms)
 
@@ -677,5 +709,24 @@ Received Import Request.
   artifactKey: Guid(e76f6d9c83ef55844af13b402e912fb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/CharacterSelectScene.unity using Guid(e76f6d9c83ef55844af13b402e912fb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ef21364b7227fdb1171aa32e58c9c16') in 0.002883 seconds
   Import took 0.005025 seconds .
+=======
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 1685.
+Total: 1.659500 ms (FindLiveObjects: 0.143000 ms CreateObjectMapping: 0.032200 ms MarkObjects: 1.421600 ms  DeleteObjects: 0.061500 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Source/빛정.png
+  artifactKey: Guid(0b941b67fe2b36a42a6881c5e6562e75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/빛정.png using Guid(0b941b67fe2b36a42a6881c5e6562e75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53c90d4e978e5b5b05d2b3031592f5ee') in 0.099524 seconds
+  Import took 0.101586 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.882527 seconds.
+  path: Assets/Source/연금술사_.png
+  artifactKey: Guid(225a902efe227894099c28d7141c6e79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Source/연금술사_.png using Guid(225a902efe227894099c28d7141c6e79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6859a3ca76cbfe54903f22301b93d1aa') in 0.020354 seconds
+  Import took 0.022677 seconds .
+>>>>>>> ingame2
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
