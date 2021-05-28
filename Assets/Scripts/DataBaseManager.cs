@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System.IO;
 
 [System.Serializable]
 public class skill
 {
-    public int skillNo;
     public Sprite skillImage; 
     public string skillName;
     public string skillInfo;
+    public UnityEvent skillActivate;
 }
 
 [System.Serializable]
