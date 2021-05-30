@@ -10,14 +10,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] backGroundLayer;
     public GameObject MoveButton;
-    public GameObject CharacterPanel;
-    public GameObject DataBaseManager;
-    public GameObject CharacterSelectButton;
-    public GameObject CharacterStatusPannel;
-    public CharacterStat selectedCharacter;
-    public List<TextMeshProUGUI> statusInfo;
-    public Sprite DefaultPortrait;
-
+    public GameObject characterPanel;
+    public GameObject[] characterSelectButton;
     
     /*
      *-------------------------------------
@@ -41,16 +35,8 @@ public class GameManager : MonoBehaviour
     /*
      *-------------------------------------
      */
-    public void ShowEachCharacterData(int characterNo)
+    public void ShowEachCharacterData(int index)
     {
-        List<CharacterStat> Characters = DataBaseManager.GetComponent<DataBaseManager>().Characters;
-        selectedCharacter = Characters[characterNo];
-        statusInfo[0].text = string.Format("{0}",selectedCharacter.name);
-        statusInfo[1].text = string.Format("{0}",selectedCharacter.maxHP);
-        statusInfo[2].text = string.Format("{0}",selectedCharacter.maxMP);
-        statusInfo[3].text = string.Format("{0}",selectedCharacter.atk);
-        statusInfo[4].text = string.Format("{0}%", selectedCharacter.defRate * 100);
-
     }
 
     public void ControlBackGroundMove()
@@ -70,7 +56,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-
+        characterPanel = GetComponent<GameObject>()
+            characterSelectButton = ;
     }
 
     // Update is called once per frame

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterSelectButton : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+    public DataBaseManager dataBaseManager;
 
     void Start()
     {

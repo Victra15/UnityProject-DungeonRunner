@@ -29,6 +29,7 @@ public class CharacterStat
     public float maxHPGrowthRate;
     public float maxMPGrowthRate;
     public float atkGrowthRate;
+    public skill passiveSkill;
     public List<skill> skills;
 }
 
