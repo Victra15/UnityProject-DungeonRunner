@@ -5,6 +5,17 @@ using UnityEngine.UI;
 using System.IO;
 using TMPro;
 
+public class PlayableCharacter : CharacterStat
+{
+    public int currHp;
+    public int currMp;
+    public int currAtk;
+    public int currStatusEffectRate;
+    public int currCriticalRate;
+
+}
+
+
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -35,9 +46,6 @@ public class GameManager : MonoBehaviour
     /*
      *-------------------------------------
      */
-    public void ShowEachCharacterData(int index)
-    {
-    }
 
     public void ControlBackGroundMove()
     {
@@ -56,8 +64,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        characterPanel = GetComponent<GameObject>()
-            characterSelectButton = ;
+        /*characterPanel = GetComponent<GameObject>();*/
     }
 
     // Update is called once per frame

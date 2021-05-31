@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uCC98\uC74C\uBD80\uD130"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f338abe7b0d134742988f90b4f39a5e3, type: 2}
-  m_sharedMaterial: {fileID: 1370922535483348116, guid: f338abe7b0d134742988f90b4f39a5e3,
+  m_fontAsset: {fileID: 11400000, guid: 0ac161802a2a05746a1d1a42385f982d, type: 2}
+  m_sharedMaterial: {fileID: -1276137506443144926, guid: 0ac161802a2a05746a1d1a42385f982d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2199,7 +2199,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB3CC\uC544\uAC00\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f338abe7b0d134742988f90b4f39a5e3, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 1370922535483348116, guid: f338abe7b0d134742988f90b4f39a5e3,
     type: 2}
   m_fontSharedMaterials: []
@@ -2334,8 +2334,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC774\uC5B4\uD558\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f338abe7b0d134742988f90b4f39a5e3, type: 2}
-  m_sharedMaterial: {fileID: 1370922535483348116, guid: f338abe7b0d134742988f90b4f39a5e3,
+  m_fontAsset: {fileID: 11400000, guid: 0ac161802a2a05746a1d1a42385f982d, type: 2}
+  m_sharedMaterial: {fileID: -1276137506443144926, guid: 0ac161802a2a05746a1d1a42385f982d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2584,8 +2584,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB098\uAC00\uAE30\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f338abe7b0d134742988f90b4f39a5e3, type: 2}
-  m_sharedMaterial: {fileID: 1370922535483348116, guid: f338abe7b0d134742988f90b4f39a5e3,
+  m_fontAsset: {fileID: 11400000, guid: 0ac161802a2a05746a1d1a42385f982d, type: 2}
+  m_sharedMaterial: {fileID: -1276137506443144926, guid: 0ac161802a2a05746a1d1a42385f982d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2691,6 +2691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backGroundLayer: []
   MoveButton: {fileID: 0}
+  characterPanel: {fileID: 0}
+  characterSelectButton: []
 --- !u!4 &2044557542
 Transform:
   m_ObjectHideFlags: 0

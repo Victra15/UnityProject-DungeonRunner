@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3624870367595134169}
   - component: {fileID: 3624870367595134170}
   - component: {fileID: 3624870367595134171}
+  - component: {fileID: 3814346017691359295}
   m_Layer: 5
   m_Name: CharacterSelectButton
   m_TagString: Untagged
@@ -119,4 +120,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3624870367595134170}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3814346017691359295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624870367595134173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac0d85074e2bbc4180eb48d490b20e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataBaseManager: {fileID: 0}
+  characterStatusPanel: {fileID: 0}

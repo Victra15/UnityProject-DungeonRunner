@@ -16,6 +16,7 @@ public class skill
 [System.Serializable]
 public class CharacterStat
 {
+    public RuntimeAnimatorController characterAnimator;
     public Sprite characterSprite;
     public Sprite characterPortrait;
     public int CharacterNo;
