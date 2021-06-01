@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour
     public void ReturnToTitleScene()
     {
         SceneManager.LoadScene("StartScene");
+        Destroy(dataBaseManager.gameObject);
+        Destroy(gameObject);
     }
 
     /*
