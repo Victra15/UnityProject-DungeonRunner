@@ -19,6 +19,7 @@ public class CharacterStatusPanel : MonoBehaviour
     TextMeshProUGUI skillInfoVal;
 
     Button selectButton;
+    Button cancelButton;
 
     // Start is called before the first frame update
     public void characterSelectButtonClick(CharacterStat _character)
@@ -30,6 +31,18 @@ public class CharacterStatusPanel : MonoBehaviour
         maxMpVal.text = string.Format("{0}", character.maxMP);
         atkVal.text = string.Format("{0}", character.atk);
         defRateVal.text = string.Format("{0}", character.defRate);
+        skillNameVal.text = "";
+        skillInfoVal.text = "Ό³Έν:";
+        if(character.isSelected)
+        {
+            selectButton.interactable = false;
+            cancelButton.interactable = true;
+        }
+        else
+        {
+            selectButton.interactable = true;
+            cancelButton.interactable = false;
+        }
     }
 
     public void skillImageClick(int buttonIndex)
@@ -55,7 +68,34 @@ public class CharacterStatusPanel : MonoBehaviour
         skillInfoButtons[3].onClick.AddListener(() => { skillImageClick(3); });
 
         selectButton = transform.GetChild(6).GetComponent<Button>();
+        cancelButton = transform.GetChild(7).GetComponent<Button>();
+        
         selectButton.onClick.AddListener(() => { characterPositionPanel.characterSelectButtonClick(character); });
+        selectButton.onClick.AddListener(() => {
+            if (character.isSelected)
+            {
+                selectButton.interactable = false;
+                cancelButton.interactable = true;
+            }
+            else
+            {
+                selectButton.interactable = true;
+                cancelButton.interactable = false;
+            }; });
+
+        cancelButton.onClick.AddListener(() => { characterPositionPanel.characterCancelButtonClick(character); });
+        cancelButton.onClick.AddListener(() => {
+            if (character.isSelected)
+            {
+                selectButton.interactable = false;
+                cancelButton.interactable = true;
+            }
+            else
+            {
+                selectButton.interactable = true;
+                cancelButton.interactable = false;
+            };
+        });
     }
         
     // Update is called once per frame

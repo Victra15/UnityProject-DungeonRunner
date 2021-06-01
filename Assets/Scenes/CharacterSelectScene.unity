@@ -779,6 +779,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee23c09dbce88743a6d077cca33c39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ContinueWindow: {fileID: 1461840693}
+  playCharactersNo: 
+  gameManager: {fileID: 375244931}
 --- !u!1 &195385372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,8 +1556,107 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backGroundLayer: []
   MoveButton: {fileID: 0}
-  characterPanel: {fileID: 0}
-  characterSelectButton: []
+  dataBaseManager: {fileID: 1397314559}
+  characterStatData: []
+  playCharacters:
+  - characterAnimator: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterPortrait: {fileID: 0}
+    CharacterNo: 0
+    name: 
+    maxHP: 0
+    maxMP: 0
+    atk: 0
+    defRate: 0
+    statusEffectRate: 0
+    criticalRate: 0
+    maxHPGrowthRate: 0
+    maxMPGrowthRate: 0
+    atkGrowthRate: 0
+    passiveSkill:
+      skillImage: {fileID: 0}
+      skillName: 
+      skillInfo: 
+      skillActivate:
+        m_PersistentCalls:
+          m_Calls: []
+    skills: []
+    isSelected: 0
+    EXPTable: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    level: 0
+    currHP: 0
+    currMP: 0
+    currAtk: 0
+    currDefRate: 0
+    currStatusEffectRate: 0
+    currCriticalRate: 0
+    currEXP: 0
+  - characterAnimator: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterPortrait: {fileID: 0}
+    CharacterNo: 0
+    name: 
+    maxHP: 0
+    maxMP: 0
+    atk: 0
+    defRate: 0
+    statusEffectRate: 0
+    criticalRate: 0
+    maxHPGrowthRate: 0
+    maxMPGrowthRate: 0
+    atkGrowthRate: 0
+    passiveSkill:
+      skillImage: {fileID: 0}
+      skillName: 
+      skillInfo: 
+      skillActivate:
+        m_PersistentCalls:
+          m_Calls: []
+    skills: []
+    isSelected: 0
+    EXPTable: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    level: 0
+    currHP: 0
+    currMP: 0
+    currAtk: 0
+    currDefRate: 0
+    currStatusEffectRate: 0
+    currCriticalRate: 0
+    currEXP: 0
+  - characterAnimator: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterPortrait: {fileID: 0}
+    CharacterNo: 0
+    name: 
+    maxHP: 0
+    maxMP: 0
+    atk: 0
+    defRate: 0
+    statusEffectRate: 0
+    criticalRate: 0
+    maxHPGrowthRate: 0
+    maxMPGrowthRate: 0
+    atkGrowthRate: 0
+    passiveSkill:
+      skillImage: {fileID: 0}
+      skillName: 
+      skillInfo: 
+      skillActivate:
+        m_PersistentCalls:
+          m_Calls: []
+    skills: []
+    isSelected: 0
+    EXPTable: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    level: 0
+    currHP: 0
+    currMP: 0
+    currAtk: 0
+    currDefRate: 0
+    currStatusEffectRate: 0
+    currCriticalRate: 0
+    currEXP: 0
+  playCharactersNo: 000000000000000000000000
+  EXPTable: 190000003200000064000000fa000000f4010000e8030000c40900008813000010270000a861000050c30000a086010090d0030020a1070040420f00
 --- !u!1 &408606130
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,7 +3307,7 @@ GameObject:
   - component: {fileID: 919482706}
   - component: {fileID: 919482710}
   m_Layer: 5
-  m_Name: ReturnSceneButton
+  m_Name: ReturnToTitleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4671,13 +4773,13 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4769,7 +4871,7 @@ MonoBehaviour:
       type: 3}
     characterPortrait: {fileID: 21300000, guid: 248b73e33bbe3544abd7c2bb316f9ce2,
       type: 3}
-    CharacterNo: 0
+    CharacterNo: 1
     name: "\uBC29\uD328\uAE30\uC0AC"
     maxHP: 1500
     maxMP: 300
@@ -4820,12 +4922,14 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
+    isSelected: 0
+    EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - characterAnimator: {fileID: 9100000, guid: 0b91c4fa83941b945b29c90885b6c06c, type: 2}
     characterSprite: {fileID: -2478889539282618257, guid: c8f8d048efbb9b74dbba7d8b49715a62,
       type: 3}
     characterPortrait: {fileID: 21300000, guid: fc886c24bd5710f498c74ad057114d82,
       type: 3}
-    CharacterNo: 1
+    CharacterNo: 2
     name: "\uBB34\uC0AC"
     maxHP: 1000
     maxMP: 500
@@ -4906,12 +5010,14 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
+    isSelected: 0
+    EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - characterAnimator: {fileID: 9100000, guid: 0224c921d73d1c448b709fb006c67ae9, type: 2}
     characterSprite: {fileID: 5935459518123193752, guid: 702c98fc4fdf5e94dab311a66d78ef02,
       type: 3}
     characterPortrait: {fileID: 21300000, guid: 44f55a0821615e14b9c55161882b03fa,
       type: 3}
-    CharacterNo: 2
+    CharacterNo: 3
     name: "\uBE5B\uC758 \uC815\uB839"
     maxHP: 900
     maxMP: 500
@@ -4969,12 +5075,14 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
+    isSelected: 0
+    EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - characterAnimator: {fileID: 9100000, guid: 6f52bb695e63dc14cb749a273af11b60, type: 2}
     characterSprite: {fileID: -3809233051643409127, guid: a1de82affe0af3a42b946cdd141d1793,
       type: 3}
     characterPortrait: {fileID: 21300000, guid: 625b9deb4deed8d4a82ff9ab5d3491db,
       type: 3}
-    CharacterNo: 3
+    CharacterNo: 4
     name: "\uC5F0\uAE08\uC220\uC0AC"
     maxHP: 900
     maxMP: 500
@@ -5030,12 +5138,14 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
+    isSelected: 0
+    EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - characterAnimator: {fileID: 9100000, guid: 9cdac64997a7f3041b9329f09a5ad185, type: 2}
     characterSprite: {fileID: -1823933673284161842, guid: 4be213adf7fddde4bbd8a21e0fef929b,
       type: 3}
     characterPortrait: {fileID: 21300000, guid: 9ef2a0bd239b7524b858acfcf74ff9c1,
       type: 3}
-    CharacterNo: 3
+    CharacterNo: 5
     name: "\uBE44\uC804 \uACE8\uB818"
     maxHP: 1400
     maxMP: 600
@@ -5092,6 +5202,8 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
+    isSelected: 0
+    EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!4 &1397314560
 Transform:
   m_ObjectHideFlags: 0
@@ -5117,6 +5229,7 @@ GameObject:
   - component: {fileID: 1461840694}
   - component: {fileID: 1461840696}
   - component: {fileID: 1461840695}
+  - component: {fileID: 1461840697}
   m_Layer: 5
   m_Name: ContinueWindow
   m_TagString: Untagged
@@ -5182,6 +5295,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461840693}
   m_CullTransparentMesh: 1
+--- !u!114 &1461840697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461840693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f977136f865894e86c919b5fc48823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 375244931}
 --- !u!1 &1495207616
 GameObject:
   m_ObjectHideFlags: 0
@@ -5915,7 +6041,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6089,6 +6215,7 @@ GameObject:
   - component: {fileID: 1882119845}
   - component: {fileID: 1882119847}
   - component: {fileID: 1882119846}
+  - component: {fileID: 1882119848}
   m_Layer: 5
   m_Name: OptionWindow
   m_TagString: Untagged
@@ -6154,6 +6281,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882119844}
   m_CullTransparentMesh: 1
+--- !u!114 &1882119848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882119844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed4716955f958845ae06ab422d3d4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 375244931}
 --- !u!1 &1886212169
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,17 +32,52 @@ public class CharacterStat
     public float atkGrowthRate;
     public skill passiveSkill;
     public List<skill> skills;
+    public bool isSelected;
+    public int[] EXPTable = new int[Constants.MaxLevel - 1];
 }
 
 
 public class DataBaseManager : MonoBehaviour
 {
+    public int[] EXPTable = new int[Constants.MaxLevel - 1] {   25,
+                                                                50,
+                                                                100,
+                                                                250,
+                                                                500,
+                                                                1000,
+                                                                2500,
+                                                                5000,
+                                                                10000,
+                                                                25000,
+                                                                50000,
+                                                                100000,
+                                                                250000,
+                                                                500000,
+                                                                1000000
+                                                            };
     public List<CharacterStat> Characters;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        var obj = FindObjectsOfType<GameManager>();
+        if(obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
-
+        for(int loop = 0; loop < Characters.Count; loop ++)
+        {
+            Characters[loop].EXPTable = EXPTable;
+        }
+        
     }
 
     // Update is called once per frame
