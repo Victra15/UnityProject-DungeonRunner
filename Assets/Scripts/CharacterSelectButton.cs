@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class CharacterSelectButton : MonoBehaviour
 {
     // Start is called before the first frame update
-    public DataBaseManager dataBaseManager;
-    public CharacterStatusPanel characterStatusPanel;
+    [SerializeField] DataBaseManager dataBaseManager;
+    [SerializeField] CharacterStatusPanel characterStatusPanel;
     Button button;
     CharacterStat character;
     void Start()

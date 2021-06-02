@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ???
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ac161802a2a05746a1d1a42385f982d, type: 2}
   m_sharedMaterial: {fileID: -1276137506443144926, guid: 0ac161802a2a05746a1d1a42385f982d,
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ???
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ac161802a2a05746a1d1a42385f982d, type: 2}
   m_sharedMaterial: {fileID: -1276137506443144926, guid: 0ac161802a2a05746a1d1a42385f982d,
@@ -1558,6 +1558,7 @@ MonoBehaviour:
   MoveButton: {fileID: 0}
   dataBaseManager: {fileID: 1397314559}
   characterStatData: []
+  sceneChanger: {fileID: 1091074278}
   playCharacters:
   - characterAnimator: {fileID: 0}
     characterSprite: {fileID: 0}
@@ -1582,15 +1583,7 @@ MonoBehaviour:
           m_Calls: []
     skills: []
     isSelected: 0
-    EXPTable: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    level: 0
-    currHP: 0
-    currMP: 0
-    currAtk: 0
-    currDefRate: 0
-    currStatusEffectRate: 0
-    currCriticalRate: 0
-    currEXP: 0
+    EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - characterAnimator: {fileID: 0}
     characterSprite: {fileID: 0}
     characterPortrait: {fileID: 0}
@@ -1614,15 +1607,7 @@ MonoBehaviour:
           m_Calls: []
     skills: []
     isSelected: 0
-    EXPTable: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    level: 0
-    currHP: 0
-    currMP: 0
-    currAtk: 0
-    currDefRate: 0
-    currStatusEffectRate: 0
-    currCriticalRate: 0
-    currEXP: 0
+    EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - characterAnimator: {fileID: 0}
     characterSprite: {fileID: 0}
     characterPortrait: {fileID: 0}
@@ -1646,17 +1631,8 @@ MonoBehaviour:
           m_Calls: []
     skills: []
     isSelected: 0
-    EXPTable: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    level: 0
-    currHP: 0
-    currMP: 0
-    currAtk: 0
-    currDefRate: 0
-    currStatusEffectRate: 0
-    currCriticalRate: 0
-    currEXP: 0
+    EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   playCharactersNo: 000000000000000000000000
-  EXPTable: 190000003200000064000000fa000000f4010000e8030000c40900008813000010270000a861000050c30000a086010090d0030020a1070040420f00
 --- !u!1 &408606130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2079,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ???
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ac161802a2a05746a1d1a42385f982d, type: 2}
   m_sharedMaterial: {fileID: -1276137506443144926, guid: 0ac161802a2a05746a1d1a42385f982d,
@@ -2763,7 +2739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ???
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ac161802a2a05746a1d1a42385f982d, type: 2}
   m_sharedMaterial: {fileID: -1276137506443144926, guid: 0ac161802a2a05746a1d1a42385f982d,
@@ -3192,6 +3168,81 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1148714566}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &815226611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 815226612}
+  - component: {fileID: 815226614}
+  - component: {fileID: 815226613}
+  m_Layer: 5
+  m_Name: FadeInOutPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &815226612
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815226611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1091074274}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &815226613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815226611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &815226614
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815226611}
+  m_CullTransparentMesh: 1
 --- !u!224 &829792191 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3624870367595134172, guid: 782f41244d6d7594c8f2a9a1db54d796,
@@ -3916,6 +3967,7 @@ GameObject:
   - component: {fileID: 1091074277}
   - component: {fileID: 1091074276}
   - component: {fileID: 1091074275}
+  - component: {fileID: 1091074278}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3941,6 +3993,7 @@ RectTransform:
   - {fileID: 1461840694}
   - {fileID: 1882119845}
   - {fileID: 433407345}
+  - {fileID: 815226612}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4010,6 +4063,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1091074278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091074273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb1b997efe944149a9e7687e0c2db12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 815226613}
 --- !u!1 &1108693021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4865,6 +4931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04b6e0dbda596046b1b94a49322ffc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EXPTable: 190000003200000064000000fa000000f4010000e8030000c40900008813000010270000a861000050c30000a086010090d0030020a1070040420f00
   Characters:
   - characterAnimator: {fileID: 9100000, guid: 3acec68c9bd292a43bde6a57814fd68d, type: 2}
     characterSprite: {fileID: -3408879960995089979, guid: b954b5d404f041d4faab94af7ca44960,
@@ -4892,7 +4959,7 @@ MonoBehaviour:
           m_Calls: []
     skills:
     - skillImage: {fileID: 0}
-      skillName: "\uBC29\uC5B4 \uD0DC\uC138"
+      skillName: "\uBC29\uC5B4 \uD0DC"
       skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uBC29\uC5B4\uB825\uC744 \uCD94\uAC00\uB85C
         20% \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
       skillActivate:
@@ -4907,18 +4974,18 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     - skillImage: {fileID: 0}
-      skillName: "\uD37C\uD399\uD2B8 \uAC00\uB4DC"
+      skillName: "\uD37C\uD399\uD2B8 \uAC00\uB4DC "
       skillInfo: "\uC9C0\uC815\uD55C \uC801 \uCE90\uB9AD\uD130 \uACF5\uACA9\uC758
         \uB370\uBBF8\uC9C0\uB97C \uCD5C\uB300 3\uD68C \uBB34\uD6A8\uD654 \uD569\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
     - skillImage: {fileID: 0}
-      skillName: "\uC720\uC778"
+      skillName: "\uC720\uC778/\uC720\uC778 \uD574\uC81C"
       skillInfo: "\uC801 \uD558\uB098\uB97C \uC9C0\uC815\uD569\uB2C8\uB2E4. \uC9C0\uC815\uD55C
         \uC801\uC740 \uC774 \uCE90\uB9AD\uD130\uB9CC \uACF5\uACA9\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.
-        \uB610\uD55C \uC720\uC778\uC0C1\uD0DC\uC5D0\uC11C\uB294 \uD1B5\uD589\uAE08\uC9C0,
-        \uD76C\uC0DD \uC2A4\uD0AC \uC0AC\uC6A9\uC774 \uBD88\uAC00\uB2A5\uD569\uB2C8\uB2E4."
+        \uC720\uC778 \uC0C1\uD0DC\uC5D0\uC11C\uB294 \uC544\uAD70\uC744 \uBCF4\uD638\uD560
+        \uC218 \uC5C6\uC2B5\uB2C8\uB2E4"
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
@@ -4949,39 +5016,11 @@ MonoBehaviour:
         \uB300\uC0C1\uC744 \uC77C\uBC18\uACF5\uACA9\uC73C\uB85C 1\uD68C \uCD94\uAC00
         \uACF5\uACA9, \uBC1B\uB294\uB370\uBBF8\uC9C0 2\uBC30 \uB0A9\uB3C4\uC2DC\uC5D0
         \uBC29\uC5B4\uB825 20% \uC99D\uAC00 \uC804\uD22C \uC2DC\uC791\uC2DC\uC5D0\uB294
-        \uB0A9\uB3C4\uC0C1\uD0DC\uB85C \uACE0\uC815"
+        \uB0A9\uB3C4\uC0C1\uD0DC"
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
     skills:
-    - skillImage: {fileID: 0}
-      skillName: "\uCE7C\uB0A0\uBE44"
-      skillInfo: "\uBB34\uC791\uC704 \uC801\uC744 x\uC758 \uB370\uBBF8\uC9C0\uB85C
-        N\uD68C \uACF5\uACA9\uD569\uB2C8\uB2E4."
-      skillActivate:
-        m_PersistentCalls:
-          m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uB0A9\uB3C4"
-      skillInfo: "\uAC80\uC744 \uB123\uC5B4 \uB2E4\uC74C \uD134\uC5D0 \uB0A9\uB3C4
-        \uC0C1\uD0DC\uB85C \uBCC0\uACBD\uD569\uB2C8\uB2E4."
-      skillActivate:
-        m_PersistentCalls:
-          m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uBB34\uC601\uBCF4(\uBC1C\uB3C4)"
-      skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uB370\uBBF8\uC9C0\uB97C \uBC1B\uC9C0
-        \uC54A\uC2B5\uB2C8\uB2E4."
-      skillActivate:
-        m_PersistentCalls:
-          m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uCE7C\uB0A0\uD3ED\uD48D"
-      skillInfo: "\uC804\uCCB4 \uC801\uC744 x\uC758 \uB370\uBBF8\uC9C0\uB85C N\uD68C
-        \uACF5\uACA9\uD569\uB2C8\uB2E4."
-      skillActivate:
-        m_PersistentCalls:
-          m_Calls: []
     - skillImage: {fileID: 0}
       skillName: "\uBC1B\uC544\uCE58\uAE30"
       skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uBC1B\uB294\uB370\uBBF8\uC9C0\uC758
@@ -5010,6 +5049,34 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
+    - skillImage: {fileID: 0}
+      skillName: "\uCE7C\uB0A0\uBE44"
+      skillInfo: "\uBB34\uC791\uC704 \uC801\uC744 x\uC758 \uB370\uBBF8\uC9C0\uB85C
+        N\uD68C \uACF5\uACA9\uD569\uB2C8\uB2E4."
+      skillActivate:
+        m_PersistentCalls:
+          m_Calls: []
+    - skillImage: {fileID: 0}
+      skillName: "\uB0A9\uB3C4"
+      skillInfo: "\uAC80\uC744 \uB123\uC5B4 \uB2E4\uC74C \uD134\uC5D0 \uB0A9\uB3C4
+        \uC0C1\uD0DC\uB85C \uBCC0\uACBD\uD569\uB2C8\uB2E4."
+      skillActivate:
+        m_PersistentCalls:
+          m_Calls: []
+    - skillImage: {fileID: 0}
+      skillName: "\uBB34\uC601\uBCF4(\uBC1C\uB3C4)"
+      skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uB370\uBBF8\uC9C0\uB97C \uBC1B\uC9C0
+        \uC54A\uC2B5\uB2C8\uB2E4."
+      skillActivate:
+        m_PersistentCalls:
+          m_Calls: []
+    - skillImage: {fileID: 0}
+      skillName: "\uCE7C\uB0A0\uD3ED\uD48D"
+      skillInfo: "\uC804\uCCB4 \uC801\uC744 x\uC758 \uB370\uBBF8\uC9C0\uB85C N\uD68C
+        \uACF5\uACA9\uD569\uB2C8\uB2E4."
+      skillActivate:
+        m_PersistentCalls:
+          m_Calls: []
     isSelected: 0
     EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - characterAnimator: {fileID: 9100000, guid: 0224c921d73d1c448b709fb006c67ae9, type: 2}
@@ -5030,7 +5097,7 @@ MonoBehaviour:
     atkGrowthRate: 1.1
     passiveSkill:
       skillImage: {fileID: 0}
-      skillName: 
+      skillName: "\uD658\uC6D0"
       skillInfo: "\uC77C\uBC18 \uACF5\uACA9\uC73C\uB85C \uC801\uC744 \uACF5\uACA9\uD558\uBA74
         \uC740\uCD1D\uC774 \uBD80\uC5EC\uB41C \uBAA8\uB4E0 \uB300\uC0C1\uC758 \uCCB4\uB825\uC744
         20 \uD68C\uBCF5\uC2DC\uD0B5\uB2C8\uB2E4. \uC804\uD22C \uB2F9 \uD55C \uBC88,
@@ -5041,7 +5108,7 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     skills:
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 570523c3d40d6f445b117fcfda92399c, type: 3}
       skillName: "\uC740\uCD1D"
       skillInfo: "\uC544\uAD70 \uD55C \uBA85\uC744 \uC9C0\uC815\uD558\uACE0 \uADF8
         \uB300\uC0C1\uC5D0\uAC8C \uC740\uCD1D\uC744 \uBD80\uC5EC\uD569\uB2C8\uB2E4.
@@ -5050,7 +5117,7 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 621e7b80b30a3d142a0d299de5eede0b, type: 3}
       skillName: "\uBD09\uD654"
       skillInfo: "\uC801 \uD55C \uBA85\uC5D0\uAC8C \uB370\uBBF8\uC9C0\uB97C \uC90D\uB2C8\uB2E4.
         \uC740\uCD1D\uC774 \uBD80\uC5EC\uB41C \uBAA8\uB4E0 \uC544\uAD70\uC758 \uCCB4\uB825\uC744
@@ -5058,7 +5125,7 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 5c33fce044aa65c46a610e34301d59be, type: 3}
       skillName: "\uCC9C\uC0C1\uC758 \uD3ED\uD48D"
       skillInfo: "\uBAA8\uB4E0 \uC544\uAD70\uC5D0\uAC8C \uC740\uCD1D\uC744 \uBD80\uC5EC\uD558\uACE0
         \uBAA8\uB4E0 \uC801\uC5D0\uAC8C \uB370\uBBF8\uC9C0\uB97C \uC90D\uB2C8\uB2E4.
@@ -5067,7 +5134,7 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: dc1490d2e87fdd5468eb6b3e6fa9d57f, type: 3}
       skillName: "\uC12C\uAD11"
       skillInfo: "\uBB34\uC791\uC704 \uC801\uC5D0\uAC8C \uB370\uBBF8\uC9C0\uB97C
         \uC90D\uB2C8\uB2E4.. \uC544\uAD70\uC5D0\uAC8C \uBD80\uC5EC\uB41C \uC740\uCD1D\uB9CC\uD07C
@@ -5095,25 +5162,21 @@ MonoBehaviour:
     atkGrowthRate: 1.1
     passiveSkill:
       skillImage: {fileID: 0}
-      skillName: 
+      skillName: "\uC57D\uD488 \uC81C\uC870"
       skillInfo: "\uAD81\uADF9\uAE30\uB97C \uC81C\uC678\uD55C \uBAA8\uB4E0 \uD589\uB3D9\uC774
-        \uB2E4\uC74C \uD134\uC5D0 \uBC1C\uB3D9\uD569\uB2C8\uB2E4. \uD589\uB3D9\uC744
-        \uC900\uBE44\uD558\uB294 \uB3D9\uC548 \uC0C1\uD0DC\uC774\uC0C1 \uC800\uD56D
-        +20% \uC640 \uCCB4\uB825\uC758 10% \uC5D0 \uD574\uB2F9\uD558\uB294 \uBCF4\uD638\uB9C9\uC744
-        \uC5BB\uC2B5\uB2C8\uB2E4. (\uD589\uB3D9\uC774 \uB05D\uB098\uBA74 \uC774 \uBCF4\uD638\uB9C9\uC740
-        \uC0AC\uB77C\uC9D1\uB2C8\uB2E4.)"
+        \uB2E4\uC74C \uD134\uC5D0 \uBC1C\uB3D9\uD569\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
     skills:
-    - skillImage: {fileID: 0}
-      skillName: "\uB9F9\uB3C5 \uC810\uC561 "
+    - skillImage: {fileID: 21300000, guid: d3a260bad18d1b244bb161970b8f1bde, type: 3}
+      skillName: "\uB9F9\uB3C5 \uC810\uC561"
       skillInfo: "\uBAA8\uB4E0 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD788\uACE0
         \uACF5\uACA9\uB825\uACFC \uBC29\uC5B4\uB825\uC744 10% \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 17bd1f59a85f5844ba6b6f20359d977d, type: 3}
       skillName: "\uC11D\uD654\uC758 \uAC00\uB8E8"
       skillInfo: "\uC9C0\uC815\uD55C \uB300\uC0C1\uACFC \uADF8 \uC624\uB978\uCABD\uC5D0
         \uC788\uB294 \uB300\uC0C1\uC5D0\uAC8C \uD53C\uD574\uB97C \uC8FC\uACE0 \uAE30\uC808\uC744
@@ -5121,16 +5184,16 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: " \uD2B9\uC81C \uC5F0\uB9C9\uD0C4"
+    - skillImage: {fileID: 21300000, guid: 92bfa07f8c390c44c9dc5c9a078157ac, type: 3}
+      skillName: "\uD2B9\uC81C \uC5F0\uB9C9\uD0C4"
       skillInfo: "\uBAA8\uB4E0 \uC801\uC5D0\uAC8C 3\uD134\uC5D0 \uAC78\uCCD0 \uD070
         \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4. \uB2E4\uC74C \uD55C \uD134 \uB3D9\uC548
-        \uC5F0\uAE08\uC220\uC0AC\uB294 \uD53C\uD574\uBA74\uC5ED\uC774 \uB429\uB2C8\uB2E4.
-        (\uC989\uC2DC \uC2DC\uC804)"
+        \uC5F0\uAE08\uC220\uC0AC\uB294 \uD53C\uD574\uBA74\uC5ED\uC774 \uB429\uB2C8\uB2E4.(\uC989\uC2DC
+        \uC2DC\uC804)"
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 481efefcb88750342ac287611f292a55, type: 3}
       skillName: "\uD2B9\uC81C \uC0B0\uD654\uD3ED\uD0C4"
       skillInfo: "\uD55C \uB300\uC0C1\uC5D0\uAC8C \uD070 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4.
         \uD53C\uD574\uB97C \uBC1B\uC740 \uB300\uC0C1\uC740 \uC77C\uC815 \uD655\uB960\uB85C
@@ -5158,12 +5221,12 @@ MonoBehaviour:
     atkGrowthRate: 1.1
     passiveSkill:
       skillImage: {fileID: 0}
-      skillName: "\uBE44\uC804 \uC5D0\uB108\uC9C0 \uD65C\uC6A9"
+      skillName: "\uBE44\uC804 \uC81C\uC5B4"
       skillInfo: "\uD134\uC774 \uC2DC\uC791\uB420 \uB54C \uB0A8\uC740 \uB9C8\uB098\uC758
         10% \uB9CC\uD07C\uC758 \uBCF4\uD638\uB9C9\uC744 \uC5BB\uC2B5\uB2C8\uB2E4.
         \uC774 \uC790\uCCB4\uB85C \uC911\uCCA9\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.
         \uC801 \uBAAC\uC2A4\uD130\uAC00 \uC8FD\uC73C\uBA74 \uCD5C\uB300 \uCCB4\uB825\uACFC
-        \uB9C8\uB098\uC758 10% \uB97C \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+        \uB9C8\uB098\uC758 10% \uB97C \uD68C\uBCF5\uD569\uB2C8\uB2E4.  "
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
@@ -5779,7 +5842,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ???
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ac161802a2a05746a1d1a42385f982d, type: 2}
   m_sharedMaterial: {fileID: -1276137506443144926, guid: 0ac161802a2a05746a1d1a42385f982d,
@@ -7046,6 +7109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPositionPanel: {fileID: 190641921}
+  DefaultSkillImage: {fileID: 21300000, guid: 593a2cecab04fd943aca21ca0160650d, type: 3}
 --- !u!1 &2065510456
 GameObject:
   m_ObjectHideFlags: 0

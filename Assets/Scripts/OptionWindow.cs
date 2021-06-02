@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class OptionWindow : MonoBehaviour
 {
-    public GameManager gameManager;
+    [SerializeField] GameManager gameManager;
     Button ReturnToTitleButton;
     // Start is called before the first frame update
     void Start()
