@@ -6,8 +6,9 @@ using TMPro;
 
 public class CharacterStatusPanel : MonoBehaviour
 {
+    [SerializeField] CharacterPositionPanel characterPositionPanel;
+    [SerializeField] Sprite DefaultSkillImage;
     CharacterStat character;
-    public CharacterPositionPanel characterPositionPanel;
     TextMeshProUGUI nameVal; 
     TextMeshProUGUI maxHpVal; 
     TextMeshProUGUI maxMpVal; 
@@ -15,6 +16,7 @@ public class CharacterStatusPanel : MonoBehaviour
     TextMeshProUGUI defRateVal;
 
     Button[] skillInfoButtons;
+    Image[] skillInfoButtonImages;
     TextMeshProUGUI skillNameVal;
     TextMeshProUGUI skillInfoVal;
 
@@ -33,7 +35,21 @@ public class CharacterStatusPanel : MonoBehaviour
         defRateVal.text = string.Format("{0}", character.defRate);
         skillNameVal.text = "";
         skillInfoVal.text = "Ό³Έν:";
-        if(character.isSelected)
+
+        for(int loop = 0; loop < skillInfoButtonImages.Length;loop++)
+        {
+            if (character.skills[loop].skillImage != null)
+            {
+                skillInfoButtonImages[loop].sprite = character.skills[loop].skillImage;
+            }
+            else
+            {
+                skillInfoButtonImages[loop].sprite = DefaultSkillImage;
+            }
+        }
+
+
+        if (character.isSelected)
         {
             selectButton.interactable = false;
             cancelButton.interactable = true;
@@ -59,6 +75,7 @@ public class CharacterStatusPanel : MonoBehaviour
         atkVal = transform.GetChild(3).GetChild(1).GetComponent<TextMeshProUGUI>();
         defRateVal = transform.GetChild(4).GetChild(1).GetComponent<TextMeshProUGUI>();
         skillInfoButtons = transform.GetChild(5).GetChild(1).GetComponentsInChildren<Button>();
+        skillInfoButtonImages = transform.GetChild(5).GetChild(1).GetComponentsInChildren<Image>();
         skillNameVal= transform.GetChild(5).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
         skillInfoVal = transform.GetChild(5).GetChild(2).GetChild(2).GetComponent<TextMeshProUGUI>();
 

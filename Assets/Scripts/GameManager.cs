@@ -15,24 +15,25 @@ public class Constants
 [System.Serializable]
 public class PlayableCharacter : CharacterStat
 {
-    public int level;
-    public int currHP;
-    public int currMP;
-    public int currAtk;
-    public float currDefRate;
-    public float currStatusEffectRate;
-    public float currCriticalRate;
-    public int currEXP;
+    public int level { get; set; }
+    public int currHP { get; set; }
+    public int currMP { get; set; }
+    public int currAtk { get; set; }
+    public float currDefRate { get; set; }
+    public float currStatusEffectRate { get; set; }
+    public float currCriticalRate { get; set; }
+    public int currEXP { get; set; }
 }
 
 
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject[] backGroundLayer;
-    public GameObject MoveButton;
-    public DataBaseManager dataBaseManager;
-    public List<CharacterStat> characterStatData;
+    [SerializeField] GameObject[] backGroundLayer;
+    [SerializeField] GameObject MoveButton;
+    [SerializeField] DataBaseManager dataBaseManager;
+    [SerializeField] List<CharacterStat> characterStatData;
+    [SerializeField] SceneChanger sceneChanger;
     public PlayableCharacter[] playCharacters = new PlayableCharacter[Constants.PartyMemberCount];
     public int[] playCharactersNo = new int[Constants.PartyMemberCount];
     
@@ -85,12 +86,12 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        SceneManager.LoadScene("InGameScene");
+        sceneChanger.GetComponent<SceneChanger>().goToScene("InGameScene");
     }
 
     public void ReturnToTitleScene()
     {
-        SceneManager.LoadScene("StartScene");
+        sceneChanger.GetComponent<SceneChanger>().goToScene("StartScene");
         Destroy(dataBaseManager.gameObject);
         Destroy(gameObject);
     }
@@ -142,6 +143,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        characterStatData = dataBaseManager.GetComponent<DataBaseManager>().Characters;
         for (int loop = 0; loop < playCharactersNo.Length; loop++)
         {
             playCharactersNo[loop] = 0;

@@ -270,8 +270,8 @@ GameObject:
   - component: {fileID: 318633299}
   - component: {fileID: 318633298}
   - component: {fileID: 318633297}
-  - component: {fileID: 318633301}
   - component: {fileID: 318633302}
+  - component: {fileID: 318633301}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -375,10 +375,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 318633296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69277968b87ba044087826450b31bfc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cb1b997efe944149a9e7687e0c2db12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 0}
+  Panel: {fileID: 1488601855}
 --- !u!222 &318633302
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2754,15 +2754,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 318633301}
-        m_TargetAssemblyTypeName: FadeInOutPanel, Assembly-CSharp
-        m_MethodName: CoroutineTestingCode
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: goToScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CharacterSelectScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2135165446
