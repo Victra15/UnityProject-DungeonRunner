@@ -4959,7 +4959,7 @@ MonoBehaviour:
           m_Calls: []
     skills:
     - skillImage: {fileID: 0}
-      skillName: "\uBC29\uC5B4 \uD0DC"
+      skillName: "\uBC29\uC5B4 \uD0DC\uC138"
       skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uBC29\uC5B4\uB825\uC744 \uCD94\uAC00\uB85C
         20% \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
       skillActivate:
