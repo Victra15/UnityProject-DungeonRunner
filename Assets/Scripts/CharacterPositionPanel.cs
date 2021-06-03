@@ -15,23 +15,26 @@ public class CharacterPositionPanel : MonoBehaviour
 
     public void characterSelectButtonClick(CharacterStat character)
     {
-        character.isSelected = true;
-
-        for (int loop = 0; loop < playCharactersNo.Length; loop++)
+        if(playCharactersNo[Constants.PartyMemberCount - 1] == 0) // selected character is not Full
         {
-            if (playCharactersNo[loop] == 0)
+            character.isSelected = true;
+
+            for (int loop = 0; loop < playCharactersNo.Length; loop++)
             {
-                playCharactersNo[loop] = character.CharacterNo;
-                characterImages[loop].sprite = character.characterSprite;
-                characterImages[loop].color = new Color(1, 1, 1, 1);
-                characterAnimators[loop].runtimeAnimatorController = character.characterAnimator;
-                break;
+                if (playCharactersNo[loop] == 0)
+                {
+                    playCharactersNo[loop] = character.CharacterNo;
+                    characterImages[loop].sprite = character.characterSprite;
+                    characterImages[loop].color = new Color(1, 1, 1, 1);
+                    characterAnimators[loop].runtimeAnimatorController = character.characterAnimator;
+                    break;
+                }
             }
-        }
 
-        if(playCharactersNo[Constants.PartyMemberCount - 1] != 0)
-        {
-            ContinueWindow.SetActive(true);
+            if (playCharactersNo[Constants.PartyMemberCount - 1] != 0) // selected character is Full
+            {
+                ContinueWindow.SetActive(true);
+            }
         }
     }
 
