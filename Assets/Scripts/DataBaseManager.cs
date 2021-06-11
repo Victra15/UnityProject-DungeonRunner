@@ -36,9 +36,27 @@ public class CharacterStat
     public int[] EXPTable = new int[Constants.MaxLevel - 1];
 }
 
+[System.Serializable]
+public class EnemyStat
+{
+    public RuntimeAnimatorController characterAnimator;
+    public Sprite characterSprite;
+    public Sprite characterPortrait;
+    public int CharacterNo;
+    public string name;
+    public int maxHP;
+    public int maxMP;
+    public int atk;
+    public float defRate;
+    public float statusEffectRate;
+    public float criticalRate;
+}
+
 
 public class DataBaseManager : MonoBehaviour
 {
+    public static DataBaseManager instance;
+
     public int[] EXPTable = new int[Constants.MaxLevel - 1] {   25,
                                                                 50,
                                                                 100,
@@ -56,11 +74,15 @@ public class DataBaseManager : MonoBehaviour
                                                                 1000000
                                                             };
     public List<CharacterStat> Characters;
+    public List<EnemyStat> Enemies;
 
     // Start is called before the first frame update
     private void Awake()
     {
-        var obj = FindObjectsOfType<GameManager>();
+        if(instance == null)
+            instance = this;
+
+        var obj = FindObjectsOfType<DataBaseManager>();
         if(obj.Length == 1)
         {
             DontDestroyOnLoad(gameObject);

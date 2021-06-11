@@ -64,7 +64,7 @@ public class CharacterStatusPanel : MonoBehaviour
     public void skillImageClick(int buttonIndex)
     {
         skillNameVal.text = string.Format("{0}", character.skills[buttonIndex].skillName);
-        skillInfoVal.text = string.Format("설명: {0}", character.skills[buttonIndex].skillInfo);
+        skillInfoVal.text = string.Format("설명: {0}", character.skills[buttonIndex].skillInfo.Replace("\\n","\n"));
     }
 
     void Start()

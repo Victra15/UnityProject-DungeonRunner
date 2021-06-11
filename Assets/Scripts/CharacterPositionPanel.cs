@@ -10,8 +10,6 @@ public class CharacterPositionPanel : MonoBehaviour
     List<Animator> characterAnimators;
     public GameObject ContinueWindow;
     public int[] playCharactersNo;
-    public GameManager gameManager;
-
 
     public void characterSelectButtonClick(CharacterStat character)
     {
@@ -75,7 +73,7 @@ public class CharacterPositionPanel : MonoBehaviour
         characterAnimators.Add(transform.GetChild(1).GetComponent<Animator>());
         characterAnimators.Add(transform.GetChild(2).GetComponent<Animator>());
 
-        playCharactersNo = gameManager.GetComponent<GameManager>().playCharactersNo;
+        playCharactersNo = GameManager.instance.GetComponent<GameManager>().playCharactersNo;
     }
 
     // Update is called once per frame

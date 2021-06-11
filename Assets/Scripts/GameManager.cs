@@ -15,28 +15,29 @@ public class Constants
 [System.Serializable]
 public class PlayableCharacter : CharacterStat
 {
-    public int level { get; set; }
-    public int currHP { get; set; }
-    public int currMP { get; set; }
-    public int currAtk { get; set; }
-    public float currDefRate { get; set; }
-    public float currStatusEffectRate { get; set; }
-    public float currCriticalRate { get; set; }
-    public int currEXP { get; set; }
+    public int level;
+    public int currHP;
+    public int currMP;
+    public int currAtk;
+    public float currDefRate;
+    public float currStatusEffectRate;
+    public float currCriticalRate;
+    public int currEXP;
+
 }
 
 
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject[] backGroundLayer;
-    [SerializeField] GameObject MoveButton;
-    [SerializeField] DataBaseManager dataBaseManager;
-    [SerializeField] List<CharacterStat> characterStatData;
-    [SerializeField] SceneChanger sceneChanger;
+    public static GameManager instance;
     public PlayableCharacter[] playCharacters = new PlayableCharacter[Constants.PartyMemberCount];
     public int[] playCharactersNo = new int[Constants.PartyMemberCount];
-    
+
+    public void GotoCharacterSelectScene()
+    {
+        SceneChanger.instance.GetComponent<SceneChanger>().goToScene("CharacterSelectScene");
+    }    
 
     /*
      *-------------------------------------
@@ -75,6 +76,8 @@ public class GameManager : MonoBehaviour
 
     public void GoToIngameScene()
     {
+        List<CharacterStat> characterStatData = DataBaseManager.instance.GetComponent<DataBaseManager>().Characters;
+
         for(int CharacterNoArrloop = 0; CharacterNoArrloop < playCharactersNo.Length; CharacterNoArrloop++)
         {
             for(int CharacterStatArrloop = 0; CharacterStatArrloop < characterStatData.Count; CharacterStatArrloop++)
@@ -86,13 +89,37 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        sceneChanger.GetComponent<SceneChanger>().goToScene("InGameScene");
+        SceneChanger.instance.GetComponent<SceneChanger>().goToScene("InGameScene");
+    }
+
+    public void loadCharacters()
+    {
+        playCharactersNo[0] = 1;
+        playCharactersNo[1] = 3;
+        playCharactersNo[2] = 4;
+
+        List<CharacterStat> characterStatData = DataBaseManager.instance.GetComponent<DataBaseManager>().Characters;
+
+        for (int CharacterNoArrloop = 0; CharacterNoArrloop < playCharactersNo.Length; CharacterNoArrloop++)
+        {
+            for (int CharacterStatArrloop = 0; CharacterStatArrloop < characterStatData.Count; CharacterStatArrloop++)
+            {
+                if (playCharactersNo[CharacterNoArrloop] == characterStatData[CharacterStatArrloop].CharacterNo)
+                {
+                    playCharacters[CharacterNoArrloop] = new PlayableCharacter();
+                    loadCharacterInfo(playCharacters[CharacterNoArrloop], characterStatData[CharacterStatArrloop]);
+                }
+            }
+        }
+
+        PlayerPanel.instance.load();
     }
 
     public void ReturnToTitleScene()
     {
-        sceneChanger.GetComponent<SceneChanger>().goToScene("StartScene");
-        Destroy(dataBaseManager.gameObject);
+        Debug.Log(SceneChanger.instance.gameObject.name);
+        SceneChanger.instance.GetComponent<SceneChanger>().goToScene("StartScene");
+        Destroy(DataBaseManager.instance.gameObject);
         Destroy(gameObject);
     }
 
@@ -106,23 +133,12 @@ public class GameManager : MonoBehaviour
     *InGameScene Method
     *-------------------------------------
     */
+    
 
-    public void ControlBackGroundMove()
+    public void meleeAtack()
     {
-        if (backGroundLayer[0].GetComponent<MoveBackground>().curr_speed == 0)
-        {
-            MoveButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Stop");
-            for (int loop = 0; loop < backGroundLayer.Length; loop++)
-                backGroundLayer[loop].GetComponent<MoveBackground>().move();
-        }
-        else
-        {
-            MoveButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Go");
-            for (int loop = 0; loop < backGroundLayer.Length; loop++)
-                backGroundLayer[loop].GetComponent<MoveBackground>().stop();
-        }
-    }
 
+    }
 
     /*
      *-------------------------------------
@@ -131,6 +147,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
+
         var obj = FindObjectsOfType<GameManager>();
         if(obj.Length == 1)
         {
@@ -143,11 +162,6 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        characterStatData = dataBaseManager.GetComponent<DataBaseManager>().Characters;
-        for (int loop = 0; loop < playCharactersNo.Length; loop++)
-        {
-            playCharactersNo[loop] = 0;
-        }
         
     }
 

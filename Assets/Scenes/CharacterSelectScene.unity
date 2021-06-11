@@ -781,7 +781,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContinueWindow: {fileID: 1461840693}
   playCharactersNo: 
-  gameManager: {fileID: 375244931}
 --- !u!1 &195385372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,7 +1555,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backGroundLayer: []
   MoveButton: {fileID: 0}
-  dataBaseManager: {fileID: 1397314559}
   characterStatData: []
   sceneChanger: {fileID: 1091074278}
   playCharacters:
@@ -1873,7 +1871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e30b45d0fd13614e97a8cf6dbe6c2b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a58f5069a59d1644b55a5aadc5dd58b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5055,14 +5053,14 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     skills:
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 3021c052e2d404b44ab99ce568970d55, type: 3}
       skillName: "\uBC29\uC5B4 \uD0DC\uC138"
       skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uBC29\uC5B4\uB825\uC744 \uCD94\uAC00\uB85C
         20% \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 0e8bdf6a946496a428d3d07886f30457, type: 3}
       skillName: "\uD76C\uC0DD"
       skillInfo: "\uC774\uBC88\uD134\uC5D0 \uC544\uAD70 \uD558\uB098\uB97C \uC9C0\uC815\uD558\uACE0
         \uADF8 \uC544\uAD70\uC774 \uBC1B\uB294 \uD53C\uD574\uB7C9\uC758 50%\uB97C
@@ -5070,14 +5068,14 @@ MonoBehaviour:
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 83b74c54eba77fd40912177758fb3c98, type: 3}
       skillName: "\uD37C\uD399\uD2B8 \uAC00\uB4DC "
       skillInfo: "\uC9C0\uC815\uD55C \uC801 \uCE90\uB9AD\uD130 \uACF5\uACA9\uC758
         \uB370\uBBF8\uC9C0\uB97C \uCD5C\uB300 3\uD68C \uBB34\uD6A8\uD654 \uD569\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
+    - skillImage: {fileID: 21300000, guid: 8f699a8d3528ebc43837c9cafb792c41, type: 3}
       skillName: "\uC720\uC778/\uC720\uC778 \uD574\uC81C"
       skillInfo: "\uC801 \uD558\uB098\uB97C \uC9C0\uC815\uD569\uB2C8\uB2E4. \uC9C0\uC815\uD55C
         \uC801\uC740 \uC774 \uCE90\uB9AD\uD130\uB9CC \uACF5\uACA9\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.
@@ -5089,7 +5087,7 @@ MonoBehaviour:
     isSelected: 0
     EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   - characterAnimator: {fileID: 9100000, guid: 0b91c4fa83941b945b29c90885b6c06c, type: 2}
-    characterSprite: {fileID: -2478889539282618257, guid: c8f8d048efbb9b74dbba7d8b49715a62,
+    characterSprite: {fileID: -2478889539282618257, guid: f2c7aed4db3b7804e88a2592d04671b0,
       type: 3}
     characterPortrait: {fileID: 21300000, guid: fc886c24bd5710f498c74ad057114d82,
       type: 3}
@@ -5118,59 +5116,39 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     skills:
-    - skillImage: {fileID: 0}
-      skillName: "\uBC1B\uC544\uCE58\uAE30"
-      skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uBC1B\uB294\uB370\uBBF8\uC9C0\uC758
-        30%\uB97C \uB418\uB3CC\uB824\uC90D\uB2C8\uB2E4."
+    - skillImage: {fileID: 21300000, guid: 867955474b7722d469199598fbb69363, type: 3}
+      skillName: "\uBC1B\uC544\uCE58\uAE30/\uCE7C\uB0A0\uBE44"
+      skillInfo: "\uB0A9\uB3C4 \uC0C1\uD0DC(\uBC1B\uC544\uCE58\uAE30) : \uB2E4\uC74C
+        3\uD134\uAC04 \uBC1B\uB294\uB370\uBBF8\uC9C0\uC758 30%\uB97C \uB418\uB3CC\uB824\uC90D\uB2C8\uB2E4.\\n\uBC1C\uB3C4
+        \uC0C1\uD0DC(\uCE7C\uB0A0\uBE44): \uBB34\uC791\uC704 \uC801\uC744 x\uC758
+        \uB370\uBBF8\uC9C0\uB85C n\uD68C \uACF5\uACA9\uD569\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uBC1C\uB3C4"
-      skillInfo: "\uAC80\uC744 \uAEBC\uB0B4\uB4E4\uC5B4 \uB2E4\uC74C\uD134\uC5D0
-        \uBC1C\uB3C4 \uC0C1\uD0DC\uB85C \uBCC0\uACBD\uD569\uB2C8\uB2E4."
+    - skillImage: {fileID: 21300000, guid: 8640dbd20a9271c4f8cab9692aca2802, type: 3}
+      skillName: "\uBC1C\uB3C4/\uB0A9\uB3C4"
+      skillInfo: "\uB0A9\uB3C4 \uC0C1\uD0DC(\uBC1C\uB3C4): \uAC80\uC744 \uAEBC\uB0B4\uB4E4\uC5B4
+        \uB2E4\uC74C\uD134\uC5D0 \uBC1C\uB3C4 \uC0C1\uD0DC\uB85C \uBCC0\uACBD\uD569\uB2C8\uB2E4.\\n\uBC1C\uB3C4
+        \uC0C1\uD0DC(\uB0A9\uB3C4): \uAC80\uC744 \uB123\uC5B4 \uB2E4\uC74C\uD134\uC5D0
+        \uB0A9\uB3C4 \uC0C1\uD0DC\uB85C \uBCC0\uACBD\uD569\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uBB34\uC601\uBCF4(\uB0A9\uB3C4)"
-      skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uB370\uBBF8\uC9C0\uB97C \uBC1B\uC9C0
-        \uC54A\uC2B5\uB2C8\uB2E4. \uBC1C\uB3C4\uC0C1\uD0DC\uB85C \uBCC0\uACBD\uD569\uB2C8\uB2E4"
-      skillActivate:
-        m_PersistentCalls:
-          m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uBA85\uC0C1"
-      skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uAE30\uB825(MP) \uD68C\uBCF5\uB7C9\uC774
-        50% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-      skillActivate:
-        m_PersistentCalls:
-          m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uCE7C\uB0A0\uBE44"
-      skillInfo: "\uBB34\uC791\uC704 \uC801\uC744 x\uC758 \uB370\uBBF8\uC9C0\uB85C
-        N\uD68C \uACF5\uACA9\uD569\uB2C8\uB2E4."
-      skillActivate:
-        m_PersistentCalls:
-          m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uB0A9\uB3C4"
-      skillInfo: "\uAC80\uC744 \uB123\uC5B4 \uB2E4\uC74C \uD134\uC5D0 \uB0A9\uB3C4
-        \uC0C1\uD0DC\uB85C \uBCC0\uACBD\uD569\uB2C8\uB2E4."
-      skillActivate:
-        m_PersistentCalls:
-          m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uBB34\uC601\uBCF4(\uBC1C\uB3C4)"
-      skillInfo: "\uB2E4\uC74C 3\uD134\uAC04 \uB370\uBBF8\uC9C0\uB97C \uBC1B\uC9C0
+    - skillImage: {fileID: 21300000, guid: 4aeeb013a04a4614cb3c0f218ba3bf8b, type: 3}
+      skillName: "\uBB34\uC601\uBCF4"
+      skillInfo: "\uB0A9\uB3C4 \uC0C1\uD0DC: \uB2E4\uC74C 3\uD134\uAC04 \uB370\uBBF8\uC9C0\uB97C
+        \uBC1B\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uBC1C\uB3C4\uC0C1\uD0DC\uB85C \uBCC0\uACBD\uD569\uB2C8\uB2E4\\n\uBC1C\uB3C4
+        \uC0C1\uD0DC: \uB2E4\uC74C 3\uD134\uCE78 \uB370\uBBF8\uC9C0\uB97C \uBC1B\uC9C0
         \uC54A\uC2B5\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
-    - skillImage: {fileID: 0}
-      skillName: "\uCE7C\uB0A0\uD3ED\uD48D"
-      skillInfo: "\uC804\uCCB4 \uC801\uC744 x\uC758 \uB370\uBBF8\uC9C0\uB85C N\uD68C
-        \uACF5\uACA9\uD569\uB2C8\uB2E4."
+    - skillImage: {fileID: 21300000, guid: 77614c32edc59ec44aa23dbb80f8a924, type: 3}
+      skillName: "\uBA85\uC0C1/\uCE7C\uB0A0\uD3ED\uD48D"
+      skillInfo: "\uB0A9\uB3C4 \uC0C1\uD0DC(\uBA85\uC0C1): \uB2E4\uC74C 3\uD134\uAC04
+        \uAE30\uB825(MP) \uD68C\uBCF5\uB7C9\uC774 50% \uC99D\uAC00\uD569\uB2C8\uB2E4.\\n\uBC1C\uB3C4
+        \uC0C1\uD0DC(\uCE7C\uB0A0\uD3ED\uD48D): \uC804\uCCB4 \uC801\uC744 x\uC758
+        \uB370\uBBF8\uC9C0\uB85C n\uD68C \uACF5\uACA9\uD569\uB2C8\uB2E4."
       skillActivate:
         m_PersistentCalls:
           m_Calls: []
@@ -5467,7 +5445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f977136f865894e86c919b5fc48823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 375244931}
 --- !u!1 &1495207616
 GameObject:
   m_ObjectHideFlags: 0
@@ -6453,7 +6430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed4716955f958845ae06ab422d3d4f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 375244931}
+  ReturnToTitleButton: {fileID: 919482706}
 --- !u!1 &1886212169
 GameObject:
   m_ObjectHideFlags: 0
