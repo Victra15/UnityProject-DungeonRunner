@@ -35,9 +35,10 @@ public class EnemyPanel : MonoBehaviour
     {
         for(int loop = 0; loop < GameManager.instance.inGameEnemies.Count; loop++)
         {
-            if(GameManager.instance.inGameEnemies[loop].currHP < 0)
+            if(GameManager.instance.inGameEnemies[loop].currHP <= 0)
             {
                 GameManager.instance.inGameEnemies.RemoveAt(loop);
+                GameManager.instance.inGameEnemiesNo.RemoveAt(loop);
                 Destroy(transform.GetChild(loop).gameObject);
             }
         }

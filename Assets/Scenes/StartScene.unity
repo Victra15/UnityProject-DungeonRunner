@@ -428,9 +428,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d2b0dacbc42924a9b73d5a0dc2d059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backGroundLayer: []
-  MoveButton: {fileID: 0}
-  characterStatData: []
+  IsEnemySelectModeOn: 0
+  IsPlayerSelectModeOn: 0
+  IsBattleFinished: 0
+  IsPlayerTurnFinished: 0
+  IsEnemyTurnFinished: 0
+  TurnCounter: 0
+  DamagePrefab: {fileID: 8457613316885179811, guid: 5d4f59f7996d8ca469d99075095d6ada,
+    type: 3}
   playCharacters:
   - characterAnimator: {fileID: 0}
     characterSprite: {fileID: 0}
@@ -456,6 +461,16 @@ MonoBehaviour:
     skills: []
     isSelected: 0
     EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    level: 0
+    currHP: 0
+    currMP: 0
+    currAtk: 0
+    currDefRate: 0
+    currStatusEffectRate: 0
+    currCriticalRate: 0
+    currEXP: 0
+    isActionFinished: 0
+    isDead: 0
   - characterAnimator: {fileID: 0}
     characterSprite: {fileID: 0}
     characterPortrait: {fileID: 0}
@@ -480,6 +495,16 @@ MonoBehaviour:
     skills: []
     isSelected: 0
     EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    level: 0
+    currHP: 0
+    currMP: 0
+    currAtk: 0
+    currDefRate: 0
+    currStatusEffectRate: 0
+    currCriticalRate: 0
+    currEXP: 0
+    isActionFinished: 0
+    isDead: 0
   - characterAnimator: {fileID: 0}
     characterSprite: {fileID: 0}
     characterPortrait: {fileID: 0}
@@ -504,7 +529,19 @@ MonoBehaviour:
     skills: []
     isSelected: 0
     EXPTable: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    level: 0
+    currHP: 0
+    currMP: 0
+    currAtk: 0
+    currDefRate: 0
+    currStatusEffectRate: 0
+    currCriticalRate: 0
+    currEXP: 0
+    isActionFinished: 0
+    isDead: 0
   playCharactersNo: 000000000000000000000000
+  inGameEnemies: []
+  inGameEnemiesNo: 
 --- !u!1 &476255742
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +758,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13307b9abedf3314aba614ca8079d44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartButton: {fileID: 0}
+  ContinueButton: {fileID: 0}
+  ExitButton: {fileID: 0}
 --- !u!1 &578978465
 GameObject:
   m_ObjectHideFlags: 0

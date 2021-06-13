@@ -10,7 +10,7 @@ public class PlayerPanel : MonoBehaviour
     public static PlayerPanel instance; // To debug
 
     [SerializeField] CommandPanel commandPanel;
-    List<Transform> PanelCharacters;
+    public List<Transform> PanelCharacters;
 
     // Start is called before the first frame update
     private void Awake()
@@ -56,9 +56,11 @@ public class PlayerPanel : MonoBehaviour
     {
         for (int loop = 0; loop < GameManager.instance.playCharacters.Length; loop++)
         {
-            if (GameManager.instance.playCharacters[loop].currHP < 0)
+            if (GameManager.instance.playCharacters[loop].currHP <= 0)
             {
-                
+                GameManager.instance.playCharacters[loop].currHP = 0;
+                GameManager.instance.playCharacters[loop].isDead = true;
+                PanelCharacters[loop].GetComponent<Animator>().SetBool("isDead", true);
             }
         }
     }
@@ -66,8 +68,11 @@ public class PlayerPanel : MonoBehaviour
     {
         for(int loop = 0; loop < Constants.PartyMemberCount; loop++)
         {
-            GameManager.instance.playCharacters[loop].isActionFinished = false;
-            transform.GetChild(loop).GetComponent<Toggle>().interactable = true;
+            if(!GameManager.instance.playCharacters[loop].isDead)
+            {
+                GameManager.instance.playCharacters[loop].isActionFinished = false;
+                transform.GetChild(loop).GetComponent<Toggle>().interactable = true;
+            }
         }
     }
 

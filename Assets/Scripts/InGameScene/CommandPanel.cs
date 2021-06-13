@@ -75,15 +75,15 @@ public class CommandPanel : MonoBehaviour
             });
 
             SecondSkillButton.GetComponent<Toggle>().onValueChanged.AddListener((bool onclicked) => {
-                GameManager.instance.playCharacters[selectedCharacterIndex].skills[0].skillActivate.Invoke();
+                GameManager.instance.playCharacters[selectedCharacterIndex].skills[1].skillActivate.Invoke();
             });
 
             ThirdSkillButton.GetComponent<Toggle>().onValueChanged.AddListener((bool onclicked) => {
-                GameManager.instance.playCharacters[selectedCharacterIndex].skills[0].skillActivate.Invoke();
+                GameManager.instance.playCharacters[selectedCharacterIndex].skills[2].skillActivate.Invoke();
             });
 
             FourthSkillButton.GetComponent<Toggle>().onValueChanged.AddListener((bool onclicked) => {
-                GameManager.instance.playCharacters[selectedCharacterIndex].skills[0].skillActivate.Invoke();
+                GameManager.instance.playCharacters[selectedCharacterIndex].skills[3].skillActivate.Invoke();
             });
 
             if (GameManager.instance.playCharacters[selectedCharacterIndex].level < 6)

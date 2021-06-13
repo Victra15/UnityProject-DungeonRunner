@@ -24,7 +24,8 @@ public class PlayableCharacter : CharacterStat
     public float currCriticalRate;
     public int currEXP;
     public bool isActionFinished;
-
+    public bool isDead;
+    public List<int> statusCounter;
 }
 
 [System.Serializable]
@@ -36,6 +37,7 @@ public class InGameEnemy : EnemyStat
     public float currStatusEffectRate;
     public float currCriticalRate;
     public bool isActionFinished;
+    public List<int> statusCounter;
 }
 
 
@@ -47,9 +49,11 @@ public class GameManager : MonoBehaviour
     public bool IsBattleFinished;
     public bool IsPlayerTurnFinished;
     public bool IsEnemyTurnFinished;
+    public int TurnCounter;
 
     public IEnumerator currUsingSkill;
 
+    public GameObject DamagePrefab;
     public static GameManager instance;
     public PlayableCharacter[] playCharacters = new PlayableCharacter[Constants.PartyMemberCount];
     public int[] playCharactersNo = new int[Constants.PartyMemberCount];
@@ -94,6 +98,8 @@ public class GameManager : MonoBehaviour
         playcharacter.currCriticalRate = character.criticalRate;
         playcharacter.currEXP = 0;
         playcharacter.EXPTable = character.EXPTable;
+        playcharacter.isDead = false;
+        playcharacter.statusCounter = new List<int>();
     }
 
     void loadEnemyInfo(InGameEnemy inGameEnemy, EnemyStat enemy)
@@ -110,6 +116,7 @@ public class GameManager : MonoBehaviour
         inGameEnemy.currDefRate = enemy.defRate;
         inGameEnemy.currStatusEffectRate = enemy.statusEffectRate;
         inGameEnemy.currCriticalRate = enemy.criticalRate;
+        inGameEnemy.statusCounter = new List<int>();
     }
 
     public void GoToIngameScene()
@@ -174,29 +181,50 @@ public class GameManager : MonoBehaviour
     *-------------------------------------
     */
 
+
     public IEnumerator BattleStart()
     {
         IsBattleFinished = false;
         Debug.Log("Battle Start!");
+        TurnCounter = 0;
         while (!IsBattleFinished)
         {
             yield return PlayerTurn();
-
-            if (inGameEnemies.Count <= 0)
+            
+            if(IsBattleFinished)
             {
-                IsBattleFinished = true;
+                break;
             }
 
             yield return EnemyTurn();
+            
+            TurnCounter++;
+        }
+        if(IsGameOver())
+        {
+            TurnAlert.instance.GameOver();
+            StartCoroutine(WaitForGoToMainScreen());
+            Debug.Log("Defeat");
+        }
+        else
+        {
+            Debug.Log("Victory");
+        }
+    }
 
+    public IEnumerator WaitForGoToMainScreen()
+    {
+        while(!Input.GetKey(KeyCode.Mouse0))
+        {
             yield return null;
         }
-        Debug.Log("Battle Finished.");
+        ReturnToTitleScene();
     }
 
     public IEnumerator PlayerTurn()
     {
         IsPlayerTurnFinished = false;
+        TurnAlert.instance.PlayerTurn();
         PlayerPanel.instance.ReadyToBattle();
 
         while (!IsPlayerTurnFinished)
@@ -205,15 +233,26 @@ public class GameManager : MonoBehaviour
             {
                 IsPlayerTurnFinished = true;
             }
+
+            if (inGameEnemies.Count <= 0) // player win
+            {
+                for (int loop = 0; loop < Constants.PartyMemberCount; loop++)
+                {
+                    PlayerPanel.instance.ActionFinished(loop);
+                }
+                IsPlayerTurnFinished = true;
+                IsBattleFinished = true;
+            }
+
             yield return null;
         }
     }
 
     public bool IsAllPlayerActionFinished()
     {
-        for(int loop = 0; loop < playCharacters.Length; loop++)
+        for (int loop = 0; loop < playCharacters.Length; loop++)
         {
-            if(!playCharacters[loop].isActionFinished)
+            if (!playCharacters[loop].isActionFinished)
             {
                 return false;
             }
@@ -224,19 +263,26 @@ public class GameManager : MonoBehaviour
     public IEnumerator EnemyTurn()
     {
         IsEnemyTurnFinished = false;
+        TurnAlert.instance.EnemyTurn();
         EnemyReadyToBattle();
 
         while (!IsEnemyTurnFinished)
         {
             for (int loop = 0; loop < inGameEnemies.Count; loop++)
             {
-                yield return EnemyAction(loop);
                 yield return new WaitForSeconds(1.5f);
+                yield return EnemyAction(loop);
             }
 
             if (IsAllEnemyActionFinished())
             {
                 IsEnemyTurnFinished = true;
+            }
+
+            if (IsGameOver())
+            {
+                IsEnemyTurnFinished = true;
+                IsBattleFinished = true;
             }
             yield return null;
         }
@@ -244,6 +290,19 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator EnemyAction(int enemyIdx)
     {
+        List<int> AliveCharacterIdxArr = new List<int>();
+        
+        for(int loop = 0; loop < playCharacters.Length; loop++)
+        {
+            if(!playCharacters[loop].isDead)
+            {
+                AliveCharacterIdxArr.Add(loop);
+            }
+        }
+
+        int victimIdx = AliveCharacterIdxArr[Random.Range(0, AliveCharacterIdxArr.Count)];
+
+        DataBaseManager.instance.EnemyBasicAttack(enemyIdx, victimIdx);
 
         inGameEnemies[enemyIdx].isActionFinished = true;
         yield return null;
@@ -268,12 +327,32 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    public bool IsGameOver()
+    {
+        for (int loop = 0; loop < Constants.PartyMemberCount; loop++)
+        {
+            if (playCharacters[loop].currHP > 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void stopUsingSkill()
     {
         CommandPanel.ClearText();
         PlayerPanel.instance.PlayerActionUnLock();
         IsEnemySelectModeOn = false;
         IsPlayerSelectModeOn = false;
+        for(int loop = 0; loop < PlayerPanel.instance.transform.childCount;loop++)
+        {
+            PlayerPanel.instance.transform.GetChild(loop).GetChild(2).gameObject.SetActive(false);
+        }
+        for (int loop = 0; loop < EnemyPanel.instance.transform.childCount; loop++)
+        {
+            EnemyPanel.instance.transform.GetChild(loop).GetChild(0).gameObject.SetActive(false);
+        }
         StopCoroutine(currUsingSkill);
     }
 
@@ -287,12 +366,29 @@ public class GameManager : MonoBehaviour
         StartCoroutine(currUsingSkill);
     }
 
+    public void DefenceStance()
+    {
+        if (currUsingSkill != null)
+        {
+            stopUsingSkill();
+        }
+        currUsingSkill = DataBaseManager.instance.DefenceStance();
+        StartCoroutine(currUsingSkill);
+    }
+
+    public void Sacrifice()
+    {
+        if (currUsingSkill != null)
+        {
+            stopUsingSkill();
+        }
+        currUsingSkill = DataBaseManager.instance.Sacrifice();
+        StartCoroutine(currUsingSkill);
+    }
+
     public void SpawnEnemy()
     {
-        inGameEnemiesNo.Add(1);
-        inGameEnemiesNo.Add(1);
-        inGameEnemiesNo.Add(1);
-        inGameEnemiesNo.Add(1);
+        inGameEnemiesNo.Add(5);
 
         for (int EnemyNoArrloop = 0; EnemyNoArrloop < inGameEnemiesNo.Count; EnemyNoArrloop++)
         {
@@ -307,7 +403,48 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OnDamagedAnim(Transform target, int Damage)
+    {
+        StartCoroutine(OnDamage(target, Damage));
+    }
 
+    public IEnumerator OnDamage(Transform target, int Damage)
+    {
+        GameObject DamageObject;
+        Vector2 pos;
+
+        float time = 0;
+        float F_time = 1;
+
+        float MaxRandY = target.GetComponent<RectTransform>().localPosition.y + Random.Range(25.0f, 50.0f) + 50;
+        float initRandY = target.GetComponent<RectTransform>().localPosition.y + Random.Range(0.0f, 20.0f) + 50;
+
+        float MaxRandX = target.GetComponent<RectTransform>().localPosition.x + Random.Range(-10.0f, 10.0f) + 50;
+        float initRandX = target.GetComponent<RectTransform>().localPosition.x + Random.Range(-50.0f, 50.0f) + 50;
+
+        DamageObject = Instantiate(DamagePrefab, target.parent);
+        DamageObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0}", Damage);
+        DamageObject.GetComponent<TextMeshProUGUI>().color = new Color(172f/255f, 50f/255f, 50f/255f);
+        DamageObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(initRandX, initRandY);
+
+        while (time < F_time)
+        {
+            time += 8 * Time.deltaTime / F_time;
+            pos = new Vector2(initRandX, Mathf.Lerp(initRandY, MaxRandY, time));
+            DamageObject.GetComponent<RectTransform>().anchoredPosition = pos;
+            yield return null;
+        }
+
+        while (time > 0)
+        {
+            time -= 8 * Time.deltaTime / F_time;
+            pos = new Vector2(initRandX, Mathf.Lerp(initRandY, MaxRandY, time));
+            DamageObject.GetComponent<RectTransform>().anchoredPosition = pos;
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        Destroy(DamageObject);
+    }
     /*
      *-------------------------------------
      */

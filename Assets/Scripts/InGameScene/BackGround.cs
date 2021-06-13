@@ -12,6 +12,9 @@ public class BackGround : MonoBehaviour
         for(int loop = 0; loop < BackGroundLayers.Length; loop++)
         {
             BackGroundLayers[loop].move();
+            PlayerPanel.instance.PanelCharacters[0].GetComponent<Animator>().SetBool("isMoving", true);
+            PlayerPanel.instance.PanelCharacters[1].GetComponent<Animator>().SetBool("isMoving", true);
+            PlayerPanel.instance.PanelCharacters[2].GetComponent<Animator>().SetBool("isMoving", true);
         }
     }
 
@@ -20,6 +23,9 @@ public class BackGround : MonoBehaviour
         for (int loop = 0; loop < BackGroundLayers.Length; loop++)
         {
             BackGroundLayers[loop].stop();
+            PlayerPanel.instance.PanelCharacters[0].GetComponent<Animator>().SetBool("isMoving", false);
+            PlayerPanel.instance.PanelCharacters[1].GetComponent<Animator>().SetBool("isMoving", false);
+            PlayerPanel.instance.PanelCharacters[2].GetComponent<Animator>().SetBool("isMoving", false);
         }
     }
 
