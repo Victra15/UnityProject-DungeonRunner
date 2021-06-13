@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using System.IO;
 
@@ -39,13 +40,10 @@ public class CharacterStat
 [System.Serializable]
 public class EnemyStat
 {
-    public RuntimeAnimatorController characterAnimator;
-    public Sprite characterSprite;
-    public Sprite characterPortrait;
-    public int CharacterNo;
+    public GameObject EnemyPrefab;
+    public int EnemyNo;
     public string name;
     public int maxHP;
-    public int maxMP;
     public int atk;
     public float defRate;
     public float statusEffectRate;
@@ -102,9 +100,58 @@ public class DataBaseManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    
+    /*
+     * enemy skills
+     * 
+     */
+
+    public void EnemyBasicAttack(int victimCharacterIdx, int attackerEnemyIdx)
     {
+        GameManager.instance.playCharacters[victimCharacterIdx].currHP -= GameManager.instance.inGameEnemies[attackerEnemyIdx].currAtk;
+        PlayerPanel.instance.transform.GetChild(victimCharacterIdx).GetChild(3).GetComponent<Slider>().value = GameManager.instance.playCharacters[victimCharacterIdx].currHP;
+        EnemyPanel.instance.EnemyDeath();
+    }
+
+
+
+
+
+
+
+
+
+
+    /*
+     * player skills
+     * 
+     */
+     
+    public IEnumerator BasicAttack()
+    {
+        PlayerPanel.instance.PlayerActionLock();
+
+        CommandPanel.infoText.text = "대상을 선택하세요 (스킬 사용 취소는 마우스 오른쪽 클릭)";
+        CommandPanel.tempText = CommandPanel.infoText.text;
+        GameManager.instance.IsEnemySelectModeOn = true;
+
+        while (GameManager.instance.IsEnemySelectModeOn)
+        {
+            if(Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                GameManager.instance.stopUsingSkill();
+            }
+            yield return null;
+        }
+
+        GameManager.instance.inGameEnemies[EnemyToolTip.selectedEnemyIdx].currHP -= GameManager.instance.playCharacters[CommandPanel.selectedCharacterIndex].currAtk;
+        EnemyPanel.instance.transform.GetChild(EnemyToolTip.selectedEnemyIdx).GetChild(1).GetComponent<Slider>().value = GameManager.instance.inGameEnemies[EnemyToolTip.selectedEnemyIdx].currHP;
+        PlayerPanel.instance.ActionFinished(CommandPanel.selectedCharacterIndex);
+        EnemyPanel.instance.EnemyDeath();
         
+        PlayerPanel.instance.PlayerActionUnLock();
     }
 }
+
+
