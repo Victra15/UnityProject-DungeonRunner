@@ -335,6 +335,7 @@ public class DataBaseManager : MonoBehaviour
             GameManager.instance.playCharacters[currCharacterIdx].currDefRate -= 0.3f;
         }
     }
+
     public IEnumerator Sacrifice()
     {
         yield return WaitForOnePlayerTargetSelect();
