@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,18 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public static SceneChanger instance;
     [SerializeField] Image Panel;
     float time;
     float F_time = 1f;
     private void Start()
     {
+        instance = this;
         StartCoroutine(FadeIn());
     }
     public void goToScene(string sceneName)
     {
         StartCoroutine(nextScene(sceneName));
     }
-    IEnumerator nextScene(string sceneName)
+    public IEnumerator nextScene(string sceneName)
     {
         yield return FadeOut();
 

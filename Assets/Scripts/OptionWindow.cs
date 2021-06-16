@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class OptionWindow : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
-    Button ReturnToTitleButton;
+    [SerializeField] Button ReturnToTitleButton;
     // Start is called before the first frame update
     void Start()
     {
-        ReturnToTitleButton = transform.GetChild(0).GetChild(1).GetComponent<Button>();
-        ReturnToTitleButton.onClick.AddListener(gameManager.ReturnToTitleScene);
+        ReturnToTitleButton.onClick.AddListener(GameManager.instance.ReturnToTitleScene);
     }
 
     // Update is called once per frame
