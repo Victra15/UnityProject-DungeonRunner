@@ -86,7 +86,21 @@ public class CommandPanel : MonoBehaviour
                 GameManager.instance.playCharacters[selectedCharacterIndex].skills[3].skillActivate.Invoke();
             });
 
-            if (GameManager.instance.playCharacters[selectedCharacterIndex].level < 6)
+            FirstSkillButton.GetChild(1).GetComponent<Image>().color = new Color(150f / 255f, 150f / 255f, 150f / 255f);
+            FirstSkillButton.GetChild(2).GetComponent<TextMeshProUGUI>().color = new Color(100f / 255f, 100f / 255f, 100f / 255f);
+            FirstSkillButton.GetComponent<Toggle>().interactable = false;
+            SecondSkillButton.GetChild(1).GetComponent<Image>().color = new Color(150f / 255f, 150f / 255f, 150f / 255f);
+            SecondSkillButton.GetChild(2).GetComponent<TextMeshProUGUI>().color = new Color(100f / 255f, 100f / 255f, 100f / 255f);
+            SecondSkillButton.GetComponent<Toggle>().interactable = false;
+            ThirdSkillButton.GetChild(1).GetComponent<Image>().color = new Color(150f / 255f, 150f / 255f, 150f / 255f);
+            ThirdSkillButton.GetChild(2).GetComponent<TextMeshProUGUI>().color = new Color(100f / 255f, 100f / 255f, 100f / 255f);
+            ThirdSkillButton.GetComponent<Toggle>().interactable = false;
+            FourthSkillButton.GetChild(1).GetComponent<Image>().color = new Color(150f / 255f, 150f / 255f, 150f / 255f);
+            FourthSkillButton.GetChild(2).GetComponent<TextMeshProUGUI>().color = new Color(100f / 255f, 100f / 255f, 100f / 255f);
+            FourthSkillButton.GetComponent<Toggle>().interactable = false;
+
+            /// 레벨별 스킬 해금 시스템(미구현)
+            /*if (GameManager.instance.playCharacters[selectedCharacterIndex].level < 6)
             {
                 ThirdSkillButton.GetChild(1).GetComponent<Image>().color = new Color(150f / 255f, 150f / 255f, 150f / 255f);
                 ThirdSkillButton.GetChild(2).GetComponent<TextMeshProUGUI>().color = new Color(100f / 255f, 100f / 255f, 100f / 255f);
@@ -110,7 +124,7 @@ public class CommandPanel : MonoBehaviour
                 FourthSkillButton.GetChild(1).GetComponent<Image>().color = new Color(1, 1, 1);
                 FourthSkillButton.GetChild(2).GetComponent<TextMeshProUGUI>().color = new Color(0, 0, 0);
                 FourthSkillButton.GetComponent<Toggle>().interactable = true;
-            }
+            }*/
         }
     }
 
@@ -118,7 +132,7 @@ public class CommandPanel : MonoBehaviour
     {
         tempText = infoText.text;
 
-        string text = string.Format("{0}\nHP: {1}/{2}  MP: {3}/{4}\n공격력: {5}  방어력: {6}%\n크리티컬: {7}%  상태이상저항: {8}%"
+        string text = string.Format("{0}\nHP: {1}/{2}  MP: {3}/{4}\n공격력: {5}  방어력: {6}%\n크리티컬: {7}%  상태이상저항: {8}%\nEXP: {9}"
             , GameManager.instance.playCharacters[characterIdx].name
             , GameManager.instance.playCharacters[characterIdx].currHP
             , GameManager.instance.playCharacters[characterIdx].maxHP
@@ -128,6 +142,7 @@ public class CommandPanel : MonoBehaviour
             , GameManager.instance.playCharacters[characterIdx].currDefRate * 100
             , GameManager.instance.playCharacters[characterIdx].currCriticalRate * 100
             , GameManager.instance.playCharacters[characterIdx].currStatusEffectRate * 100
+            , GameManager.instance.playCharacters[characterIdx].currEXP
             );
 
         infoText.text = text;
@@ -179,10 +194,5 @@ public class CommandPanel : MonoBehaviour
     public static void ReturnText()
     {
         infoText.text = tempText;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

@@ -10,6 +10,10 @@ public class TurnAlert : MonoBehaviour
 
     TextMeshProUGUI text;
     Image backgroundImage;
+    GameObject ResultPanel;
+    TextMeshProUGUI ObtainGold;
+    TextMeshProUGUI ObtainEXP;
+
 
     public IEnumerator currCoroutine;
 
@@ -18,8 +22,11 @@ public class TurnAlert : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        backgroundImage = transform.GetChild(1).GetComponent<Image>();
+        ResultPanel = transform.GetChild(2).gameObject;
+        ObtainGold = ResultPanel.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
+        ObtainEXP = ResultPanel.transform.GetChild(1).GetChild(3).GetComponent<TextMeshProUGUI>();
+        text = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        backgroundImage = transform.GetChild(0).GetComponent<Image>();
     }
 
     public void PlayerTurn()
@@ -60,6 +67,21 @@ public class TurnAlert : MonoBehaviour
         }
         currCoroutine = FadeIn();
         StartCoroutine(currCoroutine);
+    }
+
+    public void BattleResult()
+    {
+        backgroundImage.gameObject.SetActive(true);
+        ResultPanel.SetActive(true);
+        backgroundImage.color = new Color(0, 0, 0, 100.0f / 255.0f);
+        ObtainGold.text = string.Format("{0}", GameManager.instance.obtain_gold);
+        ObtainEXP.text = string.Format("{0}", GameManager.instance.obtain_exp);
+    }
+
+    public void OffBattleResult()
+    {
+        backgroundImage.gameObject.SetActive(false);
+        ResultPanel.SetActive(false);
     }
 
     public IEnumerator FadeIn()

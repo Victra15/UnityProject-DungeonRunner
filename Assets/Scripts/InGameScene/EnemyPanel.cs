@@ -37,6 +37,8 @@ public class EnemyPanel : MonoBehaviour
         {
             if(GameManager.instance.inGameEnemies[loop].currHP <= 0)
             {
+                GameManager.instance.obtain_exp += GameManager.instance.inGameEnemies[loop].exp;
+                GameManager.instance.obtain_gold += GameManager.instance.inGameEnemies[loop].gold;
                 GameManager.instance.inGameEnemies.RemoveAt(loop);
                 GameManager.instance.inGameEnemiesNo.RemoveAt(loop);
                 Destroy(transform.GetChild(loop).gameObject);

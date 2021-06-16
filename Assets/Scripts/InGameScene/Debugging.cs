@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public class Debugging : MonoBehaviour
 {
+    public static Debugging instance;
+
     Button LoadButton;
     Button FightButton;
     Button PortalButton;
     Button RandomEventButton;
     Button RestZoneButton;
     Button TreasureButton;
-    
 
+
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +30,27 @@ public class Debugging : MonoBehaviour
         TreasureButton = transform.GetChild(5).GetComponent<Button>();
 
         LoadButton.onClick.AddListener(GameManager.instance.loadCharacters);
+
+        FightButton.onClick.AddListener(UninteractableAll);
         FightButton.onClick.AddListener(GameManager.instance.SpawnEnemy);
         FightButton.onClick.AddListener(EnemyPanel.instance.SpawnEnemy);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UninteractableAll()
     {
-        
+        FightButton.interactable = false;
+        PortalButton.interactable = false;
+        RandomEventButton.interactable = false;
+        RestZoneButton.interactable = false;
+        TreasureButton.interactable = false;
+    }
+
+    public void interactableAll()
+    {
+        FightButton.interactable = true;
+        PortalButton.interactable = true;
+        RandomEventButton.interactable = true;
+        RestZoneButton.interactable = true;
+        TreasureButton.interactable = true;
     }
 }

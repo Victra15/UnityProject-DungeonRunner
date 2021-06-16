@@ -59,6 +59,12 @@ public class GameManager : MonoBehaviour
     public int[] playCharactersNo = new int[Constants.PartyMemberCount];
     public List<InGameEnemy> inGameEnemies = new List<InGameEnemy>();
     public List<int> inGameEnemiesNo = new List<int>();
+    public int curr_gold;
+
+    public int obtain_gold;
+    public int obtain_exp;
+    
+    
 
     public void GotoCharacterSelectScene()
     {
@@ -117,6 +123,8 @@ public class GameManager : MonoBehaviour
         inGameEnemy.currStatusEffectRate = enemy.statusEffectRate;
         inGameEnemy.currCriticalRate = enemy.criticalRate;
         inGameEnemy.statusCounter = new List<int>();
+        inGameEnemy.gold = enemy.gold;
+        inGameEnemy.exp = enemy.exp;
     }
 
     public void GoToIngameScene()
@@ -208,7 +216,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            TurnAlert.instance.BattleResult();
+            StartCoroutine(WaitForReturnInGame());
             Debug.Log("Victory");
+            Debugging.instance.interactableAll();
         }
     }
 
@@ -219,6 +230,27 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         ReturnToTitleScene();
+    }
+
+    public IEnumerator WaitForReturnInGame()
+    {
+        while (!Input.GetKey(KeyCode.Mouse0))
+        {
+            yield return null;
+        }
+
+        for(int loop = 0; loop < Constants.PartyMemberCount; loop++)
+        {
+            playCharacters[loop].currEXP += obtain_exp;
+        }
+
+        curr_gold += obtain_gold;
+        GoldPannel.instance.updateGold(curr_gold);
+
+        obtain_exp = 0;
+        obtain_gold = 0;
+
+        TurnAlert.instance.OffBattleResult();
     }
 
     public IEnumerator PlayerTurn()
@@ -388,7 +420,9 @@ public class GameManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        inGameEnemiesNo.Add(5);
+        inGameEnemiesNo.Add(1);
+        inGameEnemiesNo.Add(1);
+        inGameEnemiesNo.Add(1);
 
         for (int EnemyNoArrloop = 0; EnemyNoArrloop < inGameEnemiesNo.Count; EnemyNoArrloop++)
         {
@@ -452,6 +486,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        curr_gold = 0;
+        obtain_exp = 0;
+        obtain_gold = 0;
+
         if (instance == null)
             instance = this;
 
